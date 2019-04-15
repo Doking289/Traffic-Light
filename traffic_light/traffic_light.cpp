@@ -18,7 +18,6 @@
 #include "conio.h"
 using namespace std; // За это сорри
 
-
 // Глоюальные переменные
 const int SLEEP_R = 0; // Дефолтное значение для КРАСНОГО
 const int SLEEP_Y = 0; // Дефолтное значение для ЖЕЛТОГО			
@@ -27,7 +26,6 @@ const int live_programm = 1000; // Жизненный цикл программ�
 
 
 // Прототипы функций
-
 void SetLogin(string &set_login); // Регистрация login'a Admin'a
 void SetPassword(string &set_pass); // Регистрация password'a Admin'a
 void Admin(string &pass); // Ввод пароля Admin'a
@@ -84,26 +82,21 @@ int main() {
 
 void TrafficLight::ErrorEdit(int &sleep_R, int &sleep_Y, int &sleep_G) {
 	string errors_name, edit_value;
-	/*int val1,val2, val3;
-	int *Pval1 = &val1; int *Pval2 = &val2; int *Pval3 = &val3;*/
-	for (int i = 0;; )
-	{
+	for (int i = 0;; ){
 		cout << " Need to fix\n"; cout << " Fix error?: "; getline(cin, errors_name);
 		if (errors_name == "y"){
 			cout << "-------\n";
 			cout << " Done!\n";
 			cout << "-------\n";
-			for (int  j = 0;; )
-			{
+			for (int  j = 0;; ){
 				cout << " Do you want to change timer for traffic light?: "; getline(cin, edit_value);
 				if (edit_value == "y"){
-					cout << "OK" << endl;
+					cout << "OK\n" << endl;
 					sleeping(sleep_R, sleep_Y, sleep_G);
 					break;
 				}
 				else if (edit_value == "n") {
-					cout << "NOT OK" << endl;
-				//	this->sleep_R = this->sleep_Y = this->sleep_G = SLEEP_G; ///////////////////////////////////////////////////////////////////////////////////////////////
+					cout << "OK\n" << endl;
 					break;
 				}
 				else
@@ -129,6 +122,7 @@ void TrafficLight:: Default_sleeping(int &sleep_R, int &sleep_Y, int &sleep_G) {
 	sleep_Y = SLEEP_Y;
 	sleep_G = SLEEP_G;
 }
+
 void SetLogin(string &set_login) {
 	cout << " Login: "; getline(cin, set_login);
 }
@@ -138,15 +132,10 @@ void SetPassword(string &set_pass) {
 	system("cls");
 }
 
-
-
 void TrafficLight:: sleeping(int &sleep_R, int &sleep_Y, int &sleep_G) {
-	//this->sleep_R = sleep_R; this->sleep_Y = sleep_Y; this->sleep_G = sleep_G;
 	string answer1;
 	for (int i = 0; i < live_programm; ){
-
-		cout << " Setting default frequency?(y = yes; n = no): "; getline(cin, answer1);	
-
+		cout << " Set default frequency for signals?(y = yes; n = no): "; getline(cin, answer1);	
 		if (answer1 == "y"){
 			cout << " OK.";
 			cout << " Press 'Enter'\n";
@@ -157,6 +146,7 @@ void TrafficLight:: sleeping(int &sleep_R, int &sleep_Y, int &sleep_G) {
 			cout << " For Red: "; cin >> sleep_R;
 			cout << " For Yellow: "; cin >> sleep_Y;
 			cout << " For Green: "; cin >> sleep_G;
+			cout << " Press 'Enter'\n";
 			cout << endl;
 			cin.clear(); cin.ignore();
 			break;
@@ -164,7 +154,6 @@ void TrafficLight:: sleeping(int &sleep_R, int &sleep_Y, int &sleep_G) {
 		else
 			i++;
 	}
-
 }
 
 void Admin(string &pass) {
@@ -190,7 +179,7 @@ void TrafficLight::error_for_color(int &random1, string &pass1, int value1, stri
 				break;
 			}
 			if (pass1 == "exit") {
-				cout << " Error not fix\n";
+				cout << " Error not fix\n\n";
 				break;
 			}
 			if (pass1 == "gg"){
@@ -206,7 +195,6 @@ void TrafficLight::error_for_color(int &random1, string &pass1, int value1, stri
 }
 
 void TrafficLight::Color(string red, string yellow, string green, int &sleep_R, int &sleep_Y, int &sleep_G, int &random1, string &pass1,  int value, string &setPas, string &setLog) {
-
 	cin.clear(); cin.ignore();
 	value = 1;
 	for (int i = 0; i < live_programm; i++){
